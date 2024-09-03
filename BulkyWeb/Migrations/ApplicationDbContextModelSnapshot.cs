@@ -39,32 +39,6 @@ namespace BulkyWeb.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CategoryName = "Action",
-                            DisplayOrder = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryName = "Test",
-                            DisplayOrder = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryName = "Lost",
-                            DisplayOrder = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryName = "Sifi",
-                            DisplayOrder = 4
-                        });
                 });
 #pragma warning restore 612, 618
         }
