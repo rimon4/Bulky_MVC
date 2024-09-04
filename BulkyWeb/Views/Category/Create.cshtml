@@ -8,10 +8,12 @@
         <div class=" mb-2 row p-1">
             <label asp-for="CategoryName" class="p-0"></label>
             <input asp-for="CategoryName"  class="form-control" />
+            <span asp-validation-for="CategoryName" class="text-danger"></span>
         </div>
         <div class=" mb-2 row p-1">
             <label asp-for="DisplayOrder" class="p-0"></label>
             <input asp-for="DisplayOrder"  class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
         </div>
         <div class="row">
             <div class="col-6">
