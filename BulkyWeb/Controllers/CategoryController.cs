@@ -7,9 +7,9 @@ namespace BulkyWeb.Controllers
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public CategoryController(ApplicationDbContext db) 
+        public CategoryController(ApplicationDbContext db)
         {
-            _db = db;   
+            _db = db;
         }
         public IActionResult Index()
         {
@@ -35,7 +35,7 @@ namespace BulkyWeb.Controllers
 
         public IActionResult Edit(int id)
         {
-            if(id==null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
@@ -58,5 +58,31 @@ namespace BulkyWeb.Controllers
             return View();
         }
 
+        public IActionResult Delete(int id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            Category categoryFromDb = _db.categories.Find(id);
+            if (categoryFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(categoryFromDb);
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePost(int id)
+        {
+            Category obj = _db.categories.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.categories.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }
